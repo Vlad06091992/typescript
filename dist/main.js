@@ -1,7 +1,4 @@
 "use strict";
-let a = 1;
-let b = '1';
-let c = a + b;
 // console.log(1)
 function sum(a, b) {
     return a + b;
@@ -18,3 +15,9 @@ typeof some == 'string'
  */
 console.log(sum(3, 3));
 let hz = null;
+let a = 1;
+let b = 'b';
+let c = true;
+let d = /.*/;
+let e = [];
+let f = [];
