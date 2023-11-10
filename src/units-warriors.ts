@@ -1,4 +1,4 @@
-type Warrior = {
+export type Warrior = {
     health: number,
     armor: number
     shield: Shield | null
@@ -61,15 +61,15 @@ let Vlad: Human = {
     name: "Vlad",
 }
 
-type Cat = {
-    name?: never
-    clichka: string
-}
-
-let ff: Human | Cat = {
-    clichka: "fjksl",
-    // name: "fjksl"
-}
+// type Cat = {
+//     name?: never
+//     clichka: string
+// }
+//
+// let ff: Human | Cat = {
+//     clichka: "fjksl",
+//     // name: "fjksl"
+// }
 
 enum ResultCodes {
     Success = 0,
