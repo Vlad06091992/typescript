@@ -38,7 +38,7 @@ type Swordsman = Warrior & {
     shield: Shield
 }
 
-let result: Array<Archer | Swordsman> = [
+let result3: Array<Archer | Swordsman> = [
     {
         armor: 1,
         health: 100,
@@ -70,3 +70,22 @@ let ff: Human | Cat = {
     clichka: "fjksl",
     // name: "fjksl"
 }
+
+enum ResultCodes {
+    Success = 0,
+    Error = 1,
+    CaptchaIsRequired = 10,
+}
+
+const result: ResultCodes.Error = 1
+
+const resultCode = {
+    Success: 0,
+    Error: 1,
+    CaptchaIsRequired: 10,
+} as const
+
+resultCode.Success = 3
+
+const result2 = ResultCodes.Success
+
