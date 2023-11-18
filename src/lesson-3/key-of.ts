@@ -6,6 +6,6 @@ interface ICat {
 
 type CatKey = keyof ICat
 
-let a:CatKey = "voice"
+let a:CatKey = "voice" //"voice" | "age" | "lifes"
 
 export default a
