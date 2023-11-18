@@ -71,7 +71,7 @@
 interface Warrior  {
     health: number,
     armor: number
-    shield: Shield | null
+    shield: IShield | null
 }
 
 interface Weapon  {
@@ -92,10 +92,11 @@ interface SwordWeapon extends Weapon  {
 }
 
 
-interface Shield  {
+interface IShield {
     size: number
     resistance: number
 }
+
 
 
 interface Archer extends Warrior  {
@@ -106,7 +107,7 @@ interface Archer extends Warrior  {
 
 interface Swordsman extends Warrior  {
     weapon: SwordWeapon
-    shield: Shield
+    shield: IShield
 }
 
 let result3: Array<Archer | Swordsman> = [

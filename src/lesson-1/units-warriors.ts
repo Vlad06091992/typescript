@@ -71,21 +71,21 @@ let Vlad: Human = {
 //     // name: "fjksl"
 // }
 
-enum ResultCodes {
-    Success = 0,
-    Error = 1,
-    CaptchaIsRequired = 10,
-}
-
-const result: ResultCodes.Error = 1
-
-const resultCode = {
-    Success: 0,
-    Error: 1,
-    CaptchaIsRequired: 10,
-} as const
-
-resultCode.Success = 3
-
-const result2 = ResultCodes.Success
+// enum ResultCodes {
+//     Success = 0,
+//     Error = 1,
+//     CaptchaIsRequired = 10,
+// }
+//
+// const result: ResultCodes.Error = 1
+//
+// const resultCode = {
+//     Success: 0,
+//     Error: 1,
+//     CaptchaIsRequired: 10,
+// } as const
+//
+// resultCode.Success = 3
+//
+// const result2 = ResultCodes.Success
 
