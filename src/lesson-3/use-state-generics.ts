@@ -10,6 +10,7 @@ function useState<T>(initial: T): [T, (newValue: T) => void] {
 
 let [value, setValue] = useState<number>(2);
 let [userName, setUserName] = useState('admin');
+let [isAdmin, setIsAdmin] = useState(true);
 
 value++
 
