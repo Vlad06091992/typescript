@@ -35,6 +35,7 @@ let m2:TMessage = {id: 12, userId: 2, text: 'hi i am 2', dt: new Date()}
 let m3:TMessage = {id: 13, userId: 3, text: 'hi i am 3', dt: new Date()}
 
 productsStorage.add(p1)
+productsStorage.remove(100  )
 messagesStorage.add(m1)
 
 // messagesStorage.add(p1)
