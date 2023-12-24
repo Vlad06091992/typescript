@@ -1,4 +1,10 @@
-interface ICat {
+
+type SafetyAnimalLight<T,U>  = T extends {aggressive:boolean } ? U : T
+type TestSafetyAnimalLight  = SafetyAnimalLight<ITiger, ICat>
+
+const cat:TestSafetyAnimalLight = {age:10,lifes:1,voice:'meow'} //cat
+
+export interface ICat {
     age:number
     voice:string
     lifes:number
@@ -14,20 +20,20 @@ interface ITiger extends ICat {
     aggressive:boolean
 }
 
-// type SafetyAnimal
+type SafetyAnimal<T,D,U>  = T extends {aggressive:boolean } ?  D extends {aggressive:boolean} ? U extends{aggressive:boolean}? never : D : T: U
 
-type SafetyAnimalLight<T,U>  = T extends {aggressive:boolean } ? U : T
-type TestSafetyAnimalLight  = SafetyAnimalLight<ITiger, ICat>
+// type A1 = SafetyAnimal<ICat,IDog>
+// type A2 = SafetyAnimal<ITiger,IDog>
+type A3 = SafetyAnimal<IDog,ICat,IDog>
+// type A4 = SafetyAnimal<ICat,IDog>
 
-const cat:TestSafetyAnimalLight = {age:10,lifes:1,voice:'meow'} //cat
+// let a3:A3 = {}
+// let a1:A1 = {}
+// let a2:A2 = {}
+// let a4:A4 = {} as ICat
 
+export let q = 3
 
-type SafetyAnimal<T,U>  = T extends {aggressive:boolean } ? U extends {aggressive:boolean } ?  never : U : T
+export let x = q === 1 ? q >1 ? 2 : 1 :5
+console.log(x)
 
-type A1 = SafetyAnimal<ICat,IDog>
-type A2 = SafetyAnimal<IDog,ICat>
-type A3 = SafetyAnimal<ITiger,IDog>
-
-let a3:A3 = {} as never
-let a1:A1 = {} as ICat
-let a2:A2 = {} as ICat
