@@ -12,4 +12,14 @@ const bigFedya = {
     VOICE: 'meow',
     LIFES: 10
 };
+const bigFedya2 = {
+    VOICE: 'meow',
+    LIFES: 10
+};
+bigFedya2.LIFES--;
+let fedya3 = {
+    LIFES: 1,
+    VOICE: "meow",
+    AGE: 1
+};
 export {};

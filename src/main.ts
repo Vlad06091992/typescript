@@ -61,9 +61,34 @@ let fedya:rdOnly<Cat> = {lifes:20,voice:'meow'}
 
 type WTFUOOER<T extends object> = {
     readonly [K in keyof T as Uppercase<K & string>]:T[K]
-} // лю
+} // делает поля с большой буквы
 
 const bigFedya:WTFUOOER<Cat> = {
     VOICE:'meow',
     LIFES:10
+}
+
+type WTFUOOER2<T extends object> = {
+    -readonly [K in keyof T as Uppercase<K & string>]:T[K]
+} //убирает readonly
+
+const bigFedya2:WTFUOOER2<Cat> = {
+    VOICE:'meow',
+    LIFES:10
+}
+
+bigFedya2.LIFES--
+
+type Cat2  = Cat & {
+    age?:number
+}
+
+type WTFUOOER3<T extends object> = {
+    readonly [K in keyof T as Uppercase<K & string>]-?:T[K]
+} //делает поля обязаьельными
+
+let fedya3:WTFUOOER3<Cat2> = {
+    LIFES:1,
+    VOICE:"meow",
+    AGE:1
 }
