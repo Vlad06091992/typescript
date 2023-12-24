@@ -50,10 +50,20 @@ type Cat = {
     voice:'meow'
 }
 
-type rdOnly<T> = {
+type rdOnly<T extends object> = {
     readonly [K in keyof T]:T[K]
-}
+} // любой тип переданный в этот тип становится таким же типом только с замороженными полями
 
 let fedya:rdOnly<Cat> = {lifes:20,voice:'meow'}
 
 // fedya.lifes = 10 //readonly(невозможно изменить
+
+
+type WTFUOOER<T extends object> = {
+    readonly [K in keyof T as Uppercase<K & string>]:T[K]
+} // лю
+
+const bigFedya:WTFUOOER<Cat> = {
+    VOICE:'meow',
+    LIFES:10
+}
