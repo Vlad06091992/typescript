@@ -1,4 +1,5 @@
-import {ICat} from "./lesson-3/conditional-types";
+import {ICat, IDog} from "./lesson-3/conditional-types";
+import keyOf from "src/lesson-3/key-of";
 
 const n = 'name'
 
@@ -6,7 +7,6 @@ const s = {
     [n]: 'Vlad'
 }
 
-console.log(a)
 
 // type Ronly<T> = {
 //     [K in keyof T]:T
@@ -92,3 +92,31 @@ let fedya3:WTFUOOER3<Cat2> = {
     VOICE:"meow",
     AGE:1
 }
+
+export interface ICat {
+    age:number
+    voice:string
+    lifes:number
+}
+
+export interface IDog {
+    age:number
+    voice:string
+    aggressive:boolean
+}
+
+// type CommonPart<T,U> = {
+//     [K in keyof T]: K extends keyof U ? T[K] : never
+// }
+
+type CommonPart<T,U> = {
+[K in keyof T as K extends keyof U ? K : never]:T[K]
+}
+
+type Kotopes = CommonPart<ICat, IDog>
+
+const kotopes:Kotopes ={age:2,voice:'hz'}
+
+
+
+

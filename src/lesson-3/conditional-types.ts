@@ -10,7 +10,7 @@ export interface ICat {
     lifes:number
 }
 
-interface IDog {
+export interface IDog {
     age:number
     voice:string
     aggressive:boolean
