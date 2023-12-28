@@ -118,5 +118,22 @@ type Kotopes = CommonPart<ICat, IDog>
 const kotopes:Kotopes ={age:2,voice:'hz'}
 
 
+enum Gender {
+    Male = "MALE",
+    Female = "FEMALE",
+}
+
+interface Person {
+    name: string;
+    age: number;
+    gender: Gender | string;
+}
+
+// Пример использования
+const person1: Person = {
+    name: "John",
+    age: 30,
+    gender: Gender.Male,
+};
 
 
