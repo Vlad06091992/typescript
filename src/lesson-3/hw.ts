@@ -1,8 +1,13 @@
-type LazyKey<T, U>  = {
-[K in keyof T]: string | (()=> any)
+type LazyKey<T extends object, U extends keyof T>  = {
+    [K in keyof T]: U extends K ? ()=>T[K] : T[K]
 }
-function lazyKey<T,U>(obj: T, targetKey: U) : LazyKey<T, U>{
-    let res = {} as LazyKey<T, U>
+//возвращает новый объект
+//итерирует принимаемый объект, если второй аргумент функции равен ключу объекта
+// то в новом объекте под этим ключом будем функция которая возвращает значение объекта в аргументе по ключу в аргументе
+// иначе значение ключа нового объекта будет равно старому
+
+function lazyKey<T extends object,U extends Extract<keyof T,string>>(obj: T, targetKey: U) : LazyKey<T, U>{
+    let res:any = {}
 
     for(let k  in obj){
         if(targetKey == k){
@@ -48,7 +53,7 @@ let map1: BigMap = {
 let lazyTest = lazyKey(test1, 'steps');
 console.log(test1);
 console.log(lazyTest);
-console.log(lazyTest.steps());
+console.log(lazyTest.steps);
 
 
 
